@@ -1,5 +1,5 @@
 const express = require("express");
-const routes = express.Router;
+const routes = express.Router();
 
 //req.query para acessar os parametros ?idade=20
 //para filtros
