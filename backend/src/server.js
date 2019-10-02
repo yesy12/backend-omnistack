@@ -13,7 +13,12 @@ mongoose.connect(link,{
     useNewUrlParser: true,
     useUnifiedTopology: true 
 })
-
+.then(()=>{
+    console.log("Conectado MongoDb Atlas");
+})
+.catch((error)=>{
+    console.log(error);
+})
 
 app.use(express.json());
 app.use(routes);
