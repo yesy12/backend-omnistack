@@ -11,10 +11,7 @@ const port = 3000;
 //req.body Acessar o corpo da requisição
 
 app.post("/users",(req,res)=>{
-    return res.json({
-        nome : req.body.nome,
-        email: req.body.email
-    })
+    return res.json(req.body)
 })
 
 app.put("/users/:id",(req,res)=>{
