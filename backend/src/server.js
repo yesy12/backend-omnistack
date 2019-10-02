@@ -10,6 +10,8 @@ const port = 3000;
 
 //req.body Acessar o corpo da requisição
 
+app.use(express.json())
+
 app.post("/users",(req,res)=>{
     return res.json(req.body)
 })
