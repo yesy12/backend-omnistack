@@ -9,7 +9,7 @@ const routes = express.Router();
 
 //req.body Acessar o corpo da requisição
 
-routes.post("/users/:id",(req,res)=>{
+routes.post("/users/",(req,res)=>{
     return res.json(req.body)
 })
 
