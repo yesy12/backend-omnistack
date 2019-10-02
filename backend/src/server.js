@@ -3,7 +3,10 @@ const app = express();
 const port = 3000;
 
 //req.query para acessar os parametros ?idade=20
+//para filtros
+
 //req.params acessar parametros da url users/1
+//para edicao,delete
 
 app.post("/users",(req,res)=>{
     return res.json({
