@@ -2,9 +2,11 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
-app.get("/",(req,res)=>{
+//req.query para acessar os parametros
+
+app.post("/users",(req,res)=>{
     return res.json({
-        message : "Hello World"
+        idade : req.query.idade
     })
 })
 
