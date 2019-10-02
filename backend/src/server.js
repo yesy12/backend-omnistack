@@ -9,3 +9,8 @@ app.use(routes);
 app.listen(port,()=>{
     console.log(`Running on port ${port} ...`)
 })
+
+const username = "omnistack";
+const password = "lPBVFfPw8sK4QbEC";
+const banco = "omnistack";
+const link = `mongodb+srv://${username}:${password}@cluster0-nth3w.mongodb.net/${banco}?retryWrites=true&w=majority`
