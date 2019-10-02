@@ -8,6 +8,8 @@ const port = 3000;
 //req.params acessar parametros da url users/1
 //para edicao,delete
 
+//req.body Acessar o corpo da requisição
+
 app.post("/users",(req,res)=>{
     return res.json({
         idade : req.query.idade
