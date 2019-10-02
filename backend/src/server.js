@@ -12,7 +12,8 @@ const port = 3000;
 
 app.post("/users",(req,res)=>{
     return res.json({
-        idade : req.query.idade
+        nome : req.body.nome,
+        email: req.body.email
     })
 })
 
