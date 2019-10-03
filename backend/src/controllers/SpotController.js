@@ -11,7 +11,7 @@ module.exports = {
 		const { company, price, techs } = req.body;
 		const { user_id } = req.headers;//req.headers mas da erro
 		
-		let spot = {
+		let spotJson = {
 			thumbnail: filename,
 			company,
 			price,
@@ -19,9 +19,9 @@ module.exports = {
 			user: user_id
 		}
 
-		spot = Spot.create(spot)
+		Spot.create(spotJson)
 		.then(()=>{
-			return res.json(spot)
+			return res.json(spotJson)
 		})
 		.catch((error)=>{
 			return res.json(error)
