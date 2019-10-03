@@ -14,7 +14,7 @@ module.exports = {
 			techs : tech
 		})
 
-		return res.json(spots)
+		return res.json(spots);
 
 	},
 	async store(req,res){
@@ -22,7 +22,7 @@ module.exports = {
 		const { company, price, techs } = req.body;
 		const { user_id } = req.headers
 
-		const user = await user.findById(user_id)
+		const user = await User.findById(user_id)
 
 		if(!user){
 			return res.status(400).json({
