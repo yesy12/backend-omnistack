@@ -9,16 +9,16 @@ module.exports = {
 	async store(req,res){
 		const { filename } = req.file;
 		const { company, price, techs } = req.body;
-		const { user_id } = "5d96111d05fe7802c15b62cd";
+		const { user_id } = req.body;//req.headers mas da erro
 		
-		const spot = {
+		let spot = {
 			thumbnail: filename,
 			company,
 			price,
 			techs : techs.split(",").map(tech => tech.trim()),
 			user: user_id
 		}
-		
+		console.log(spot)
 		spot = Spot.create(spot)
 		
 		return res.json(spot)

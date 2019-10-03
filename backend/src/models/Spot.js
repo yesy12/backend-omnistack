@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const SpotSchema = mongoose.Schema({
+const SpotSchema = new mongoose.Schema({
 	thumbnail : String,
 	company : String,
 	price : Number,
@@ -11,4 +11,4 @@ const SpotSchema = mongoose.Schema({
 	}
 });
 
-module.export = mongoose.model("Spot",SpotSchema)
+module.exports = mongoose.model("Spot",SpotSchema);
