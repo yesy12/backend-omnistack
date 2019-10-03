@@ -1,5 +1,6 @@
 const express = require("express");
 const routes = express.Router();
+const SessionController = require("./controllers/SessionController")
 
 //req.query para acessar os parametros ?idade=20
 //para filtros
@@ -9,9 +10,7 @@ const routes = express.Router();
 
 //req.body Acessar o corpo da requisição
 
-routes.post("/users/",(req,res)=>{
-    return res.json(req.body)
-})
+routes.post("/users/",SessionController.store);
 
 
 module.exports = routes;
