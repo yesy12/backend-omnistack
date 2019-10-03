@@ -1,4 +1,5 @@
-const Spot = require("../models/Spot")
+const Spot = require("../models/Spot");
+const User = require("../models/User");
 
 //index listar todos os objetos
 //show listar apenas um objeto
@@ -6,26 +7,39 @@ const Spot = require("../models/Spot")
 //store criar objeto
 
 module.exports = {
+	async index(req,res){
+		const { tech } = req.query;
+
+		const spots = await Spot.find({
+			techs : tech
+		})
+
+		return res.json(spots)
+
+	},
 	async store(req,res){
 		const { filename } = req.file;
 		const { company, price, techs } = req.body;
-		const { user_id } = req.headers;//req.headers mas da erro
-		
-		let spotJson = {
-			thumbnail: filename,
-			company,
-			price,
-			techs : techs.split(",").map(tech => tech.trim()),
-			user: user_id
-		}
+		const { user_id } = req.headers
 
-		Spot.create(spotJson)
-		.then(()=>{
-			return res.json(spotJson)
-		})
-		.catch((error)=>{
-			return res.json(error)
-		})
-		
+		const user = await user.findById(user_id)
+
+		if(!user){
+			return res.status(400).json({
+				error : "User does not exists"
+			})
+		}
+		else{
+			const spot = await Spot.create({
+				thumbnail: filename,
+				company,
+				price,
+				techs : techs.split(",").map(tech => tech.trim()),//tirar espaco antes e depois
+				user: user_id
+			})
+
+			return res.json(spot)
+			
+		}
 	}
 }
