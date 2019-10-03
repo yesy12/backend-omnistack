@@ -8,7 +8,7 @@ const upload = multer(UploadConfig);
 const SessionController = require("./controllers/SessionController");
 const SpotController = require("./controllers/SpotController");
 const DashboardController = require("./controllers/DashboardController");
-
+const BookingController = require("./controllers/BookingController");
 
 //req.query para acessar os parametros ?idade=20
 //para filtros
@@ -21,8 +21,11 @@ const DashboardController = require("./controllers/DashboardController");
 routes.post("/users/",SessionController.store);
 
 routes.post("/spots/", upload.single("thumbnail"), SpotController.store);
+
 routes.get("/spots/", SpotController.index);
 
 routes.get("/dashboard/", DashboardController.show);
+
+routes.post("/spots/:spot_id/bookings",BookingController.store);
 
 module.exports = routes;
