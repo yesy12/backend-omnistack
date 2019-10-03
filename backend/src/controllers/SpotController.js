@@ -1,4 +1,5 @@
 const Spot = require("../models/Spot")
+
 //index listar todos os objetos
 //show listar apenas um objeto
 //destroy, update
@@ -6,11 +7,20 @@ const Spot = require("../models/Spot")
 
 module.exports = {
 	async store(req,res){
-		console.log(req.body);
-		console.log("File: ")
-		console.log(req.file)
-		return res.json({
-			ok : true
-		})
+		const { filename } = req.file;
+		const { company, price, techs } = req.body;
+		const { user_id } = "5d96111d05fe7802c15b62cd";
+		
+		const spot = {
+			thumbnail: filename,
+			company,
+			price,
+			techs : techs.split(",").map(tech => tech.trim()),
+			user: user_id
+		}
+		
+		spot = Spot.create(spot)
+		
+		return res.json(spot)
 	}
 }
