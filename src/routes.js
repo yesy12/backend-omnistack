@@ -18,10 +18,6 @@ const BookingController = require("./controllers/BookingController");
 
 //req.body Acessar o corpo da requisição
 
-routes.get("/",(req,res)=>{
-    res.send("Teste")
-})
-
 routes.post("/users/",SessionController.store);
 
 routes.post("/spots/", upload.single("thumbnail"), SpotController.store);
