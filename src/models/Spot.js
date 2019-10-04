@@ -11,4 +11,10 @@ const SpotSchema = new mongoose.Schema({
 	}
 });
 
+//Nao existe no db, mas sim no js
+SpotSchema.virtual("thumbnail_url")
+.get(()=>{
+	return `http://localhost:3000/files/${this.thumbnail}`
+})
+
 module.exports = mongoose.model("Spot",SpotSchema);
