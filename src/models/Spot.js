@@ -9,6 +9,10 @@ const SpotSchema = new mongoose.Schema({
 		type : mongoose.Schema.Types.ObjectId,
 		ref: "User"
 	}
+},{
+	toJSON : {
+		virtuals : true
+	}
 });
 
 //Nao existe no db, mas sim no js
